@@ -16,12 +16,12 @@ export default class MainMenu extends BaseScene {
         };
 
         Object.entries(itemTexts)
-            .forEach(([scene, text], index) => {
+            .forEach(([scene, text], index, array) => {
                 const style = new PIXI.TextStyle({
                     fontFamily: 'Arial',
                     fontSize: 36,
                     fontWeight: 'bold',
-                    fill: ['#ffffff'], // gradient
+                    fill: ['#ffffff'],
                     stroke: '#4a1850',
                     strokeThickness: 2,
                 });
@@ -31,7 +31,7 @@ export default class MainMenu extends BaseScene {
                 richText.on('pointerdown', () => {
                     this.emit('startScene', scene);
                 });
-                richText.y = index * 50;
+                richText.y = (-(array.length - 1) / 2 + index) * 50;
                 richText.anchor.set(0.5);
                 this.addChild(richText);
             });

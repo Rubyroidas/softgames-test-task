@@ -7,12 +7,36 @@ export default class BaseScene extends PIXI.Container {
         this.app = app;
     }
 
+    update() {
+        if (this.fpsCounter) {
+            this.fpsCounter.text = `FPS: ${Math.floor(this.app.ticker.FPS)}`;
+        }
+    }
+
+    addFPSCounter() {
+        const style = new PIXI.TextStyle({
+            fontFamily: 'Arial',
+            fontSize: 16,
+            fill: ['#ffffff'],
+        });
+
+        const richText = new PIXI.Text('< back to main menu', style);
+        richText.interactive = true;
+        richText.on('pointerdown', () => {
+            this.emit('startScene', 'MainMenu');
+        });
+        richText.anchor.set(0, 0);
+        richText.position.set(-this.x + 5, -this.y + 5);
+        this.fpsCounter = richText;
+        this.addChild(richText);
+    }
+
     addBackLink() {
         const style = new PIXI.TextStyle({
             fontFamily: 'Arial',
             fontSize: 24,
             fontWeight: 'bold',
-            fill: ['#ffffff'], // gradient
+            fill: ['#ffffff'],
             stroke: '#4a1850',
             strokeThickness: 1,
         });
@@ -22,7 +46,8 @@ export default class BaseScene extends PIXI.Container {
         richText.on('pointerdown', () => {
             this.emit('startScene', 'MainMenu');
         });
-        richText.position.set(-this.x + 5, -this.y + 5);
+        richText.anchor.set(0, 1);
+        richText.position.set(-this.x + 5, this.y - 5);
         this.addChild(richText);
     }
 

@@ -11,6 +11,7 @@
   "author": "Denis Klyuev <deenis.klyuev@gmaiil.com>",
   "license": "ISC",
   "dependencies": {
+    "pixi-tween": "^0.2.0",
     "pixi.js": "^4.8.7"
   },
   "devDependencies": {

@@ -37,6 +37,7 @@ module.exports = (_, {mode}) => {
             devtool: 'cheap-module-source-map',
             devServer: {
                 port: 9000,
+                host: '0.0.0.0',
                 open: true,
                 watchContentBase: true,
                 hot: true,

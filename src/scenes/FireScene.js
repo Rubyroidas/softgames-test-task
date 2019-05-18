@@ -11,7 +11,7 @@ export default class FireScene extends BaseScene {
             fontFamily: 'Arial',
             fontSize: 24,
             fontWeight: 'bold',
-            fill: ['#ffffff'], // gradient
+            fill: ['#ffffff'],
             stroke: '#4a1850',
             strokeThickness: 1,
         }));
