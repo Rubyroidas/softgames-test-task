@@ -1,6 +1,7 @@
 import * as PIXI from 'pixi.js';
 import 'pixi-tween';
 
+import GoFullscreen from './scenes/GoFullscreen';
 import MainMenu from './scenes/MainMenu';
 import CardScene from './scenes/CardScene';
 import TextToolScene from './scenes/TextToolScene';
@@ -12,7 +13,12 @@ const app = window.app = new PIXI.Application({
 // console.log(app);
 app.loader.add('card', 'card.png');
 app.loader.add('icons', 'icons.json');
-app.loader.onComplete.add(() => startScene('MainMenu'));
+if (/iPad|iPhone|iPod/i.test(navigator.userAgent)) {
+    // no fullscreen for iOS
+    app.loader.onComplete.add(() => startScene('MainMenu'));
+} else {
+    app.loader.onComplete.add(() => startScene('GoFullscreen'));
+}
 app.loader.load();
 document.body.appendChild(app.view);
 app.ticker.add(() => {
@@ -21,6 +27,7 @@ app.ticker.add(() => {
 });
 
 const scenes = {
+    GoFullscreen,
     MainMenu,
     CardScene,
     TextToolScene,

@@ -31,13 +31,9 @@ export default class MainMenu extends BaseScene {
                 richText.on('pointerdown', () => {
                     this.emit('startScene', scene);
                 });
-                richText.y = (-(array.length - 1) / 2 + index) * 50;
+                richText.y = (-(array.length - 1) / 2 + index) * 100;
                 richText.anchor.set(0.5);
                 this.addChild(richText);
             });
-    }
-
-    destroy() {
-        // TODO
     }
 }
