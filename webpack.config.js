@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (_, {mode}) => {
     const config = {
@@ -39,11 +40,20 @@ module.exports = (_, {mode}) => {
                 port: 9000,
                 host: '0.0.0.0',
                 open: true,
+                contentBase: path.resolve(__dirname, 'static'),
                 watchContentBase: true,
                 hot: true,
                 clientLogLevel: 'none',
             },
         });
+    } else {
+        config.plugins.push(
+            new CopyWebpackPlugin([{
+                from: path.resolve(__dirname, 'static'),
+                to: path.resolve(__dirname, 'dist'),
+                debug: false
+            }])
+        );
     }
 
     return config;
