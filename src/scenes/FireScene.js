@@ -144,8 +144,4 @@ export default class FireScene extends BaseScene {
         // console.log(direction / Math.PI * 180);
         return Math.pow(Math.abs(Math.sin(direction)), 6) * MAX_LIFETIME;
     }
-
-    destroy() {
-        // TODO
-    }
 }

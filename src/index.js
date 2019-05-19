@@ -11,11 +11,11 @@ const app = window.app = new PIXI.Application({
 });
 // console.log(app);
 app.loader.add('card', 'card.png');
-// app.loader.onComplete.add(() => startScene('MainMenu'));
-app.loader.onComplete.add(() => startScene('FireScene'));
+app.loader.add('icons', 'icons.json');
+app.loader.onComplete.add(() => startScene('MainMenu'));
 app.loader.load();
 document.body.appendChild(app.view);
-app.ticker.add(function(delta) {
+app.ticker.add(() => {
     PIXI.tweenManager.update();
     currentScene && currentScene.update();
 });
@@ -39,5 +39,5 @@ function startScene(key) {
     app.stage.addChild(newScene);
     newScene.on('startScene', startScene);
     window.scene = currentScene = newScene;
-    console.log('current scene is', currentScene);
+    // console.log('current scene is', currentScene);
 }

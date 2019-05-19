@@ -17,10 +17,10 @@ export default class BaseScene extends PIXI.Container {
         const style = new PIXI.TextStyle({
             fontFamily: 'Arial',
             fontSize: 16,
-            fill: ['#ffffff'],
+            fill: '#ffffff',
         });
 
-        const richText = new PIXI.Text('< back to main menu', style);
+        const richText = new PIXI.Text('---', style);
         richText.interactive = true;
         richText.on('pointerdown', () => {
             this.emit('startScene', 'MainMenu');
@@ -35,10 +35,10 @@ export default class BaseScene extends PIXI.Container {
         const style = new PIXI.TextStyle({
             fontFamily: 'Arial',
             fontSize: 24,
-            fontWeight: 'bold',
-            fill: ['#ffffff'],
+            // fontWeight: 'bold',
+            fill: '#ffff00',
             stroke: '#4a1850',
-            strokeThickness: 1,
+            strokeThickness: 4,
         });
 
         const richText = new PIXI.Text('< back to main menu', style);
@@ -52,6 +52,6 @@ export default class BaseScene extends PIXI.Container {
     }
 
     destroy() {
-        console.warn('destroy method should be implemented');
+        // console.warn('destroy method should be implemented');
     }
 }

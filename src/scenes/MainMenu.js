@@ -21,7 +21,7 @@ export default class MainMenu extends BaseScene {
                     fontFamily: 'Arial',
                     fontSize: 36,
                     fontWeight: 'bold',
-                    fill: ['#ffffff'],
+                    fill: '#ffffff',
                     stroke: '#4a1850',
                     strokeThickness: 2,
                 });
