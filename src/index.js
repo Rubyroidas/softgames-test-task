@@ -12,7 +12,7 @@ const app = window.app = new PIXI.Application({
 // console.log(app);
 app.loader.add('card', 'card.png');
 // app.loader.onComplete.add(() => startScene('MainMenu'));
-app.loader.onComplete.add(() => startScene('CardScene'));
+app.loader.onComplete.add(() => startScene('FireScene'));
 app.loader.load();
 document.body.appendChild(app.view);
 app.ticker.add(function(delta) {
