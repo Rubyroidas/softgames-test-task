@@ -8,7 +8,7 @@ export default class BaseScene extends PIXI.Container {
     }
 
     update() {
-        if (this.fpsCounter) {
+        if (this.fpsCounter && this.app.ticker.lastTime % 400 < 100) {
             this.fpsCounter.text = `FPS: ${Math.floor(this.app.ticker.FPS)}`;
         }
     }
@@ -20,7 +20,7 @@ export default class BaseScene extends PIXI.Container {
             fill: '#ffffff',
         });
 
-        const richText = new PIXI.Text('---', style);
+        const richText = new PIXI.Text('FPS:', style);
         richText.interactive = true;
         richText.on('pointerdown', () => {
             this.emit('startScene', 'MainMenu');

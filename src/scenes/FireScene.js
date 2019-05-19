@@ -8,6 +8,7 @@ const MIN_VELOCITY = 100;
 const MAX_VELOCITY = 200;
 const MAX_DELAY = 200;
 const MAX_ANGLE_DIV = Math.PI / 4;
+const TOTAL_SPRITES = 4000;
 
 export default class FireScene extends BaseScene {
     constructor(app) {
@@ -39,10 +40,8 @@ export default class FireScene extends BaseScene {
         });
         this.addChild(this.sprites);
 
-        this.totalSprites = app.renderer instanceof PIXI.WebGLRenderer ? 10000 : 100;
-
         // particles creation
-        for (let i = 0; i < this.totalSprites; i++) {
+        for (let i = 0; i < TOTAL_SPRITES; i++) {
             // create a new Sprite
             const particle = new PIXI.Sprite(particleTexture);
 
